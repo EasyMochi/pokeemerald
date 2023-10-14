@@ -942,3 +942,25 @@ u8 ItemId_GetSecondaryId(u16 itemId)
 {
     return gItems[SanitizeItemId(itemId)].secondaryId;
 }
+
+void ItemId_GetHoldEffectParam_Script(void)
+{
+    VarSet(VAR_RESULT, ItemId_GetHoldEffectParam(VarGet(VAR_0x8004)));
+}
+
+void Cycle_Through_Repels(void)
+{
+    u16 RepelCycle[] = {ITEM_REPEL, ITEM_SUPER_REPEL, ITEM_MAX_REPEL};    
+    u8 i = 0;
+
+    while (gSpecialVar_Result == FALSE){
+        gSpecialVar_Result = CheckBagHasItem(RepelCycle[i],1);
+        if (gSpecialVar_Result == TRUE)
+            VarSet(VAR_REPEL_LAST_USED, RepelCycle[i]);
+        i++;
+        if (i > 2)
+            return;
+    }
+
+    return;
+}

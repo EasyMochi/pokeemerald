@@ -75,6 +75,8 @@ ItemUseFunc ItemId_GetFieldFunc(u16 itemId);
 u8 ItemId_GetBattleUsage(u16 itemId);
 ItemUseFunc ItemId_GetBattleFunc(u16 itemId);
 u8 ItemId_GetSecondaryId(u16 itemId);
+void ItemId_GetHoldEffectParam_Script(void);
+void Cycle_Through_Repels(void);
 
 /* Expands to:
  * enum
